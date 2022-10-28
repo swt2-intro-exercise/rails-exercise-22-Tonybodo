@@ -6,4 +6,12 @@ describe "New author page", type: :feature do
      # http://localhost:3000/
      visit new_author_path
    end
+
+   it "should have a text input fields for an author's first name, last name and homepage" do
+    visit new_author_path
+    # these are the standard names given to inputs by the Rails form builder
+    expect(page).to have_field('author[first_name]')
+    expect(page).to have_field('author[last_name]')
+    expect(page).to have_field('author[homepage]')
+   end
  end
