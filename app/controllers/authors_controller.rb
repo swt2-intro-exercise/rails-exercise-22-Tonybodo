@@ -1,3 +1,4 @@
 class AuthorsController < ApplicationController
-    def index
+    def new
+    end
 end
