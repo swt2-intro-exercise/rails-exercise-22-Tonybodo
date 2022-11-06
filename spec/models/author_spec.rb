@@ -10,9 +10,9 @@ RSpec.describe Author, type: :model do
     end
 
     it "should have first name, last name, homepage and function to show whole name" do
-        expect(author.first_name).to eq(firstName)
-        expect(author.last_name).to eq(lastName)
-        expect(author.homepage).to eq(homepage)
-        expect(author.name).to eq(firstName + " " + lastName)
+        expect(author.first_name).to eq("Alan")
+        expect(author.last_name).to eq("Turing")
+        expect(author.homepage).to eq("http://wikipedia.org/Alan_Turing")
+        expect(author.name).to eq("Alan Turing")
     end 
 end
