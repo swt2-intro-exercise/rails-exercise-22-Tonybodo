@@ -1,4 +1,9 @@
 class AuthorsController < ApplicationController
+
+    def show
+        @author = Author.find(author_id_params)
+    end
+
     def create
         @author = Author.new(author_params)
         @author.save
@@ -8,5 +13,10 @@ class AuthorsController < ApplicationController
     private
         def author_params
             params.require(:author).permit(:first_name, :last_name, :homepage)
+        end
+    
+    private
+        def author_id_params
+            params.require(:id)
         end
 end
