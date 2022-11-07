@@ -1,5 +1,12 @@
 class AuthorsController < ApplicationController
 
+    def index
+        @authors = Author.all 
+    end
+    
+    def new
+    end
+
     def show
         @author = Author.find(author_id_params)
     end
@@ -15,7 +22,7 @@ class AuthorsController < ApplicationController
             params.require(:author).permit(:first_name, :last_name, :homepage)
         end
     
-    private
+    private 
         def author_id_params
             params.require(:id)
         end
