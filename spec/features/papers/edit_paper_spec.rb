@@ -14,7 +14,7 @@ describe "paper edit page", type: :feature do
             @paper = Paper.new(
                 title: 'The Lord of the Rings',
                 venue: 'New Zealand',
-                year: 2022
+                year: 1954
             )
             @paper.save
         end

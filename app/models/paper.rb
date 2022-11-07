@@ -6,5 +6,5 @@ class Paper < ApplicationRecord
                       length: {minimum: 1}
     validates :year,  presence: true,
                       numericality: {only_integer: true}
-                      
+    scope :year, -> (year) {where("year=?", year) if year.present?}
 end
