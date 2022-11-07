@@ -3,16 +3,16 @@ class AuthorsController < ApplicationController
     def index
         @authors = Author.all 
     end
-    
+
+    def show
+        @author = Author.find(author_id_params)
+    end
+
     def new
         @author = Author.new
     end
 
     def edit
-        @author = Author.find(author_id_params)
-    end
-
-    def show
         @author = Author.find(author_id_params)
     end
 
@@ -33,6 +33,13 @@ class AuthorsController < ApplicationController
         else
           render 'edit'
         end
+    end
+
+    def destroy
+        @author = Author.find(author_id_params)
+        @author.destroy
+
+        redirect_to authors_path
     end
 
     private
