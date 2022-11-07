@@ -32,13 +32,13 @@ describe "authors index page", type: :feature do
         expect(page).to have_xpath("//table//td//a[contains(@href, '#{@alan.homepage}') and text()='#{@alan.homepage}']")
     end
 
-    it "should have a link to edit an author page" do
+    it "should have a link to edit an author" do
         visit authors_path
         expect{
-                find(:xpath, "//table//td//a[contains(@href, '#{edit_author_path(@alan)}') and text()='Edit']").click
+                find(:xpath, "//table//td//a[contains(@href, '#{author_path(@alan)}') and text()='Edit']").click
             }.to change(Author, :count).by(0)
     end
-
+    
     it "should have a link to delete an author" do
         visit authors_path
         expect{
