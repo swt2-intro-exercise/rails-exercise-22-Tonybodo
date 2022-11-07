@@ -8,6 +8,10 @@ class AuthorsController < ApplicationController
         @author = Author.new
     end
 
+    def edit
+        @author = Author.find(author_id_params)
+    end
+
     def show
         @author = Author.find(author_id_params)
     end
@@ -18,6 +22,16 @@ class AuthorsController < ApplicationController
             redirect_to @author, notice: 'Success!'
         else
             render 'new'
+        end
+    end
+
+    def update
+        @author = Author.find(author_id_params)
+       
+        if @author.update(author_params)
+          redirect_to @author
+        else
+          render 'edit'
         end
     end
 
